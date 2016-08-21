@@ -13,7 +13,7 @@ apply plugin: 'idea'
 apply plugin: 'spring-boot'
 apply plugin: 'docker'
 
-project.version = '0.1'
+project.version = '1.0'
 project.group = 'de.maibornwolff.ace'
 
 jar {
@@ -39,7 +39,6 @@ dependencies {
 task buildDocker(type: Docker, dependsOn: jar) {
     group = 'docker'
     applicationName = jar.baseName
-    setTagVersionToLatest()
     dockerfile = file('docker/Dockerfile')
     setEnvironment('VERSION', project.version)
     doFirst {
