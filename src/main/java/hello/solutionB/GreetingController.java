@@ -22,7 +22,7 @@ public class GreetingController {
 
     @RequestMapping(
             method = RequestMethod.GET,
-            value = "v1/greeting",
+            value = "greeting",
             produces = "application/json"
     )
     public Greeting greeting(@RequestParam(value = "name") String name) {

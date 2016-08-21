@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import static hello.Greeting.TEMPLATE_V1;
-import static hello.Greeting.TEMPLATE_V2;
 
 /**
  * 1 service, 2 API versions
@@ -29,20 +28,6 @@ public class GreetingController {
     public Greeting greeting(@RequestParam(value = "name") String name) {
 
         return new Greeting(String.format(TEMPLATE_V1, name));
-    }
-
-
-    @RequestMapping(
-            method = RequestMethod.GET,
-            value = "/greeting",
-            produces = "application/json",
-            headers = "api-version=2"
-    )
-    public Greeting greetingWithAge(
-            @RequestParam(value = "name") String name,
-            @RequestParam(value = "age") int age)
-    {
-        return new Greeting(String.format(TEMPLATE_V2, name, age));
     }
 
 }
