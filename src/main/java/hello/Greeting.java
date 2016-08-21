@@ -6,6 +6,7 @@ package hello;
 public class Greeting {
 
     public static final String TEMPLATE_V1 = "Hello, %s!";
+    public static final String TEMPLATE_V2 = "Hello, %s, age %d!";
 
     private final String message;
 
