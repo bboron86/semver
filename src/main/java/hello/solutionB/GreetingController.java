@@ -1,6 +1,7 @@
 package hello.solutionB;
 
 import hello.Greeting;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +18,7 @@ import static hello.Greeting.TEMPLATE_V1;
 @RestController("BController")
 @EnableSwagger2
 @RequestMapping("b")
+@EnableDiscoveryClient
 public class GreetingController {
 
 
