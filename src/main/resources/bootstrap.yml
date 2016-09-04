@@ -9,5 +9,6 @@ spring:
         tags: version=2
         prefer-ip-address: true
         ip-address: 192.168.33.100
+        server-list-query-tags: {GreetingService: [version=2, version=1]}
   application:
     name: GreetingService
