@@ -27,6 +27,6 @@ public class TestGreetingService {
     public void testV1() {
         ResponseEntity<Greeting> response = this.restTemplate.getForEntity("/b/greeting?name={n}", Greeting.class, "Bartosz");
         assertThat("StatusCode should be 200", response.getStatusCode(), is(HttpStatus.OK));
-        assertThat("Wrong message", response.getBody().getMessage(), is("Hello, Bartosz!"));
+        assertThat("Wrong message", response.getBody().getMessage(), is("Hello, Bartosz, age 0!"));
     }
 }
