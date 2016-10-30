@@ -19,9 +19,17 @@ public class MyConfig {
         return new Queue(QUEUE_NAME);
     }
 
-    @Bean
-    public Receiver myReceiver() {
-        return new Receiver();
+    private static class ReceiverConfig {
+
+        @Bean
+        public Receiver myReceiver1() {
+            return new Receiver(1);
+        }
+
+        @Bean
+        public Receiver myReceiver2() {
+            return new Receiver(2);
+        }
     }
 
     @Bean
