@@ -1,5 +1,6 @@
 package helloRabbit;
 
+import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -12,10 +13,15 @@ import org.springframework.scheduling.annotation.Scheduled;
 public class Sender {
 
     @Autowired
-    private RabbitTemplate rabbitTemplate;
+    private RabbitTemplate template;
 
-    @Scheduled(fixedDelay = 1000L)
+    @Autowired
+    private Queue queue;
+
+    @Scheduled(fixedDelay = 1000, initialDelay = 500)
     public void send() {
-       this.rabbitTemplate.convertAndSend("spring-boot-exchange", "spring-boot", "hello");
+        String message = "Hello World";
+        this.template.convertAndSend(queue.getName(), message);
+        System.out.println(" [x] Sent '" + message + "'");
     }
 }

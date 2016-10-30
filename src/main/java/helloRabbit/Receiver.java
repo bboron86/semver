@@ -1,22 +1,18 @@
 package helloRabbit;
 
-import java.util.concurrent.CountDownLatch;
+import org.springframework.amqp.rabbit.annotation.RabbitHandler;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 
 /**
  * TODO bartoszb add description
  *
  * @author Bartosz Boron, MaibornWolff GmbH
  */
+@RabbitListener(queues = MyConfig.QUEUE_NAME)
 public class Receiver {
 
-    private CountDownLatch latch = new CountDownLatch(1);
-
-    public void receiveMessage(String message) {
-        System.out.println("Received <" + message + ">");
-        latch.countDown();
-    }
-
-    public CountDownLatch getLatch() {
-        return latch;
+    @RabbitHandler
+    public void receive(String message) {
+        System.out.println(" [x] Received '" + message + "'");
     }
 }
