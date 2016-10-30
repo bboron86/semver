@@ -3,3 +3,6 @@ spring:
     consul:
       host: 192.168.33.100
       port: 8500
+  rabbitmq:
+    host: 192.168.33.100
+    port: 5672

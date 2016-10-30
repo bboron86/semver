@@ -33,6 +33,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-actuator")
 
     compile("org.springframework.cloud:spring-cloud-starter-consul-discovery")
+    compile("org.springframework.boot:spring-boot-starter-amqp")
 
     compile("io.springfox:springfox-swagger2:2.5.0")
     compile("io.springfox:springfox-swagger-ui:2.5.0")
